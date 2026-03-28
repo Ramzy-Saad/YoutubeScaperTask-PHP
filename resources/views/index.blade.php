@@ -146,25 +146,27 @@
     <div class="row">
         @foreach ($playlists as $p)
             <div class="col-md-3 mb-4">
-                <div class="course-card position-relative">
-                    <span class="badge-top">
-                        {{ $p->lessons_count ?? 1 }} درس
-                    </span>
-                    <img src="{{ $p->thumbnail }}" class="w-100 card-img">
+                <a href="https://www.youtube.com/playlist?list={{ $p->playlist_id }}" class="text-decoration-none text-dark" target="_blank">
+                    <div class="course-card position-relative">
+                        <span class="badge-top">
+                            {{ $p->lessons_count ?? 1 }} درس
+                        </span>
+                        <img src="{{ $p->thumbnail }}" class="w-100 card-img">
 
-                    <div class="p-3">
-                        <h6 class="mb-2">{{ $p->title }}</h6>
+                        <div class="p-3">
+                            <h6 class="mb-2">{{ $p->title }}</h6>
 
-                        <div class="meta mb-2">
-                            {{ $p->channel_name }}
+                            <div class="meta mb-2">
+                                {{ $p->channel_name }}
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="tag">{{ $p->category }}</span>
+                            </div>
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="tag">{{ $p->category }}</span>
-                        </div>
                     </div>
-
-                </div>
+                </a>
             </div>
         @endforeach
     </div>
